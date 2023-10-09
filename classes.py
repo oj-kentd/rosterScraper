@@ -73,7 +73,7 @@ class Grouping:
             
             if(player.stars >= 4):
                 blueChips += 1
-    
+
         self.stats.recruitingTotal = sum(ratings)
         self.stats.recruitingAvg = self.stats.recruitingTotal / len(ratings)
         
@@ -105,7 +105,7 @@ class Player:
         self.firstName = self.firstName.replace("'", "").replace(".", "").strip()
         self.lastName = self.lastName.replace("'", "").replace(".", "").strip()
 
-        searchString = str(self.firstName + "%20" + self.lastName.replace(" ", "%20"))
+        searchString = str(self.firstName.replace(" ", "%20") + "%20" + self.lastName.replace(" ", "%20"))
         return (url + searchString)
 
     def __repr__(self):
@@ -219,7 +219,7 @@ class Roster:
             line = line.decode("utf-8")
 
             if (len(line.strip())) == 0 or (len(line.replace(",", "").strip())) == 0:
-                print(line)
+                # print(line)
                 # Blank Line: End of input data
                 break
 
@@ -231,16 +231,18 @@ class Roster:
 
             length = len(line.replace(",", "").strip())
 
-            print(length)
+            # print(length)
 
             if(len(tokens) == 0):
-                print(line)
+                print("len(tokens) == 0 :" + line)
                 continue
             
             # print(tokens[0])
             if(not (tokens[0] == "O" or tokens[0] == "D")):
-                print(line)
+                print("token[0] wrong" + line)
                 continue
+
+            # print(len(tokens))
 
             # Results
             side = tokens[0]

@@ -12,7 +12,9 @@ import markdown2
 # url = "https://www.ourlads.com/ncaa-football-depth-charts/depth-chart/tennessee/91993/"
 # url = "https://www.ourlads.com/ncaa-football-depth-charts/depth-chart/kentucky/90866"
 # url = "https://www.ourlads.com/ncaa-football-depth-charts/depth-chart/vanderbilt/92361"
-url = "https://www.ourlads.com/ncaa-football-depth-charts/depth-chart/south-carolina/91832"
+# url = "https://www.ourlads.com/ncaa-football-depth-charts/depth-chart/south-carolina/91832"
+url = "https://www.ourlads.com/ncaa-football-depth-charts/depth-chart/georgia/90590"
+
 url2 = "https://www.on3.com/db/search/?searchText="
 
 ANNUAL_ADJUSTMENT_RATE = 0.02
@@ -78,7 +80,9 @@ def testPlayerPosition(player, positionJson):
     if(positionJson == "LB"):
         return (player.position == "MLB" or
                 player.position == "WLB" or
-                player.position == "ANCHR")
+                player.position == "ANCHR" or
+                player.position == "MAC" or
+                player.position == "MONEY")
     
     if(positionJson == "CB" or positionJson == "S"):
         return (player.position == "LCB" or
